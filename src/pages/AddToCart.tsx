@@ -26,14 +26,10 @@ const AddToCart = () => {
     dispatch(updateQuantity({ itemId: id, quantity }));
   };
 
-  const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
-  };
-
   return (
     <div className="p-12">
       <div className="mx-auto">
-        <div className="grid grid-cols-5 gap-3 text-center mb-2">
+        <div className="grid grid-cols-5 gap-3 text-center mb-2 font-medium">
           <p>Item</p>
           <p>Price</p>
           <p>Quantity</p>
@@ -54,14 +50,15 @@ const AddToCart = () => {
             >
               <div className="flex justify-center">
                 <img
-                  src="https://res.cloudinary.com/dvz9ssr9t/image/upload/v1720518986/download_11_feilmz.jpg"
-                  alt="ball"
+                  src={item.image}
+                  alt={item.title}
                   className="rounded-full h-12 w-12 "
                 />
               </div>
               <p>{item.price} tk</p>
               <div className="flex justify-center">
                 <button
+                  className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
                   onClick={() =>
                     handleUpdateQuantity(item._id, item.quantity - 1)
                   }
@@ -70,6 +67,7 @@ const AddToCart = () => {
                 </button>
                 <p>{item.quantity}</p>
                 <button
+                  className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
                   onClick={() =>
                     handleUpdateQuantity(item._id, item.quantity + 1)
                   }
@@ -91,8 +89,8 @@ const AddToCart = () => {
 
         <hr className="my-4" />
         {cart.length > 0 && (
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12">
-            <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 sm:p-9 flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-12 px-5 sm:px-0 ">
+            <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 sm:p-9 flex flex-col sm:flex-row gap-4 ">
               <h2>
                 Subtotal:{" "}
                 <strong>
@@ -129,6 +127,11 @@ const AddToCart = () => {
               >
                 Clear All Cart
               </Button>
+              <Link to="/checkout">
+                <Button className="btn btn-clear bg-cyan-900">
+                  Chackout Button
+                </Button>
+              </Link>
             </div>
           </div>
         )}

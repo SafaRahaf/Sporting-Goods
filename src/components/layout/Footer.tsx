@@ -5,13 +5,16 @@ import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer: React.FC = () => {
   return (
     <>
-      <footer className="bg-gray-900 text-white py-20 px-4">
+      <footer className="bg-gray-900 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Sport's With Us</h3>
-            <p className="text-md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit.
+            <p className="text-sm">
+              Sports encompass a wide range of physical activities,
+              competitions, and games that involve physical exertion, skill, and
+              often a competitive aspect. They are played individually or in
+              teams, providing entertainment, physical fitness, and social
+              interaction. Here are some key points about sports
             </p>
           </div>
           <div className="text-center md:text-left">
@@ -60,8 +63,16 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4">Call Us</h3>
-            <h3 className="text-xl">+91 12345678978</h3>
+            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+
+            <h4 className="text-lg mb-3">
+              <strong className="text-xl font-normal mb-2">Call Us :</strong>
+              +91 12345678978
+            </h4>
+            <h4 className="text-lg">
+              <strong className="text-xl font-normal mb-2">Mail Us :</strong>
+              sportgoods@outlook.com
+            </h4>
           </div>
         </div>
 

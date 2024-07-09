@@ -8,7 +8,7 @@ const OurTeam: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div className="border rounded-lg overflow-hidden shadow-lg">
             <img
-              src="https://via.placeholder.com/200"
+              src="https://res.cloudinary.com/dvz9ssr9t/image/upload/v1693973520/samples/people/kitchen-bar.jpg"
               alt="Team Member 1"
               className="w-full h-48 object-cover"
             />
@@ -19,7 +19,7 @@ const OurTeam: React.FC = () => {
           </div>
           <div className="border rounded-lg overflow-hidden shadow-lg">
             <img
-              src="https://via.placeholder.com/200"
+              src="https://res.cloudinary.com/dvz9ssr9t/image/upload/v1693973547/samples/smile.jpg"
               alt="Team Member 2"
               className="w-full h-48 object-cover"
             />
@@ -30,7 +30,7 @@ const OurTeam: React.FC = () => {
           </div>
           <div className="border rounded-lg overflow-hidden shadow-lg">
             <img
-              src="https://via.placeholder.com/200"
+              src="https://res.cloudinary.com/dvz9ssr9t/image/upload/v1693973524/samples/people/smiling-man.jpg"
               alt="Team Member 3"
               className="w-full h-48 object-cover"
             />

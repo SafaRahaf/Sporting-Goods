@@ -15,15 +15,15 @@ const Header: React.FC = () => {
               <a href="/" className="text-white">
                 Home
               </a>
-            </li>
-            <li>
-              <a href="/about" className="text-white">
-                About
-              </a>
-            </li>
+            </li>{" "}
             <li>
               <a href="/products" className="text-white">
                 Products
+              </a>
+            </li>
+            <li>
+              <a href="/about" className="text-white">
+                About Us
               </a>
             </li>
             <li>
