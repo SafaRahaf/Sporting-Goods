@@ -14,16 +14,18 @@ const AddToCart = () => {
   const cart = useAppSelector((state: RootState) => state.cart.cart);
   const dispatch = useAppDispatch();
 
-  const handleRemove = (id: string) => {
-    dispatch(removeFromCart(id));
+  const handleRemove = (_id: string) => {
+    dispatch(removeFromCart(_id));
   };
+
+  console.log("Cart state in AddToCart component:", cart);
 
   const handleClearCart = () => {
     dispatch(clearCart());
   };
 
-  const handleUpdateQuantity = (id: string, quantity: number) => {
-    dispatch(updateQuantity({ itemId: id, quantity }));
+  const handleUpdateQuantity = (_id: string, quantity: number) => {
+    dispatch(updateQuantity({ itemId: _id, quantity }));
   };
 
   return (

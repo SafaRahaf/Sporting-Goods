@@ -3,7 +3,7 @@ import AddToCartButton from "@/components/AddToCartButton";
 import { IProduct } from "@/interface/productInterface";
 
 const ProductCard: React.FC<IProduct> = ({
-  id,
+  _id,
   image,
   title,
   price,
@@ -24,7 +24,7 @@ const ProductCard: React.FC<IProduct> = ({
       <div className="p-4">
         <div className="flex justify-between">
           <h3 className="text-lg font-bold">{title}</h3>
-          <div>{id && <AddToCartButton productId={id.toString()} />}</div>
+          <div>{_id && <AddToCartButton productId={_id.toString()} />}</div>
         </div>
         <p className="text-gray-500 mb-2">{brand}</p>
         <div className="flex justify-between items-center mb-2">

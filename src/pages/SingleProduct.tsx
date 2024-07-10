@@ -6,17 +6,17 @@ import { IProduct } from "../interface/productInterface";
 import AddToCartButton from "@/components/AddToCartButton";
 
 const SingleProduct: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { _id } = useParams<{ _id: string }>();
   const [product, setProduct] = useState<IProduct | null>(null);
 
   const { products } = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    const selectedProduct = products.find((p) => p.id!.toString() === id);
+    const selectedProduct = products.find((p) => p._id!.toString() === _id);
     if (selectedProduct) {
       setProduct(selectedProduct);
     }
-  }, [id, products]);
+  }, [_id, products]);
 
   if (!product) {
     return <p>Loading...</p>;
@@ -54,7 +54,7 @@ const SingleProduct: React.FC = () => {
               <span className="font-bold">Price:</span> ${product.price}
             </p>
             <div>
-              <AddToCartButton productId={id} />
+              <AddToCartButton productId={_id} />
             </div>
           </div>
         </div>

@@ -11,11 +11,12 @@ interface AddToCartButtonProps {
 const AddToCartButton: React.FC<AddToCartButtonProps> = ({ productId }) => {
   const dispatch = useDispatch();
   const { products } = useSelector((state: RootState) => state.products);
-  const product = products.find((p) => p.id!.toString() === productId);
+  const product = products.find((p) => p._id!.toString() === productId);
 
   const handleAddToCart = () => {
     if (product) {
       dispatch(addToCart(product));
+      console.log("Product added to cart:", product);
     }
   };
 
