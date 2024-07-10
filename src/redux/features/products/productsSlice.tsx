@@ -71,6 +71,9 @@ const productsSlice = createSlice({
       state.sort = action.payload;
       state.filteredProducts = filterAndSortProducts(state);
     },
+    addProduct: (state, action: PayloadAction<IProduct>) => {
+      state.products.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -95,7 +98,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setFilter, clearFilter, setSort } =
+export const { setSearchQuery, setFilter, clearFilter, setSort, addProduct } =
   productsSlice.actions;
 
 export default productsSlice.reducer;

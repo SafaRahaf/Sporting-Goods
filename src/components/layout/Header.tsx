@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-slate-900 p-4">
+    <header className="bg-slate-900 py-4">
       <div className="container mx-auto flex justify-between items-center">
         <a className="text-white text-lg font-medium" href="/">
           Sporting Goods
@@ -33,12 +33,16 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <NavLink to="/add-to-cart">
-          <a className="text-white flex">
-            <IoCartOutline className=" text-2xl font-bold mr-3" />
-            <div className="hidden md:block">Add To Cart</div>
+        <div className="flex gap-6  ">
+          <a href="/manage-product" className="text-white hidden md:block">
+            Add Products
           </a>
-        </NavLink>
+          <NavLink to="/add-to-cart">
+            <a className="text-white flex">
+              <IoCartOutline className=" text-2xl font-bold mr-3" />
+            </a>
+          </NavLink>
+        </div>
       </div>
     </header>
   );

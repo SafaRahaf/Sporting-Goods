@@ -9,6 +9,7 @@ import SingleProduct from "./pages/SingleProduct";
 import ErrorPage from "./pages/ErrorPage";
 import AddToCart from "./pages/AddToCart";
 import Checkout from "./pages/Checkout";
+import ManageProduct from "./pages/ManageProduct";
 
 function App() {
   return (
@@ -20,10 +21,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/add-to-cart" element={<AddToCart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/manage-product" element={<ManageProduct />} />
             <Route path="*" element={<ErrorPage />} />
           </>
         </Routes>
