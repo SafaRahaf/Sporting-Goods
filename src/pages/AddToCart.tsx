@@ -46,50 +46,49 @@ const AddToCart = () => {
           </div>
         ) : (
           cart.map((item) => (
-            <div
-              key={item._id}
-              className="grid grid-cols-5 gap-3 text-center mb-2 items-center"
-            >
-              <div className="flex justify-center">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="rounded-full h-12 w-12 "
-                />
-              </div>
-              <p>{item.price} tk</p>
-              <div className="flex justify-center">
-                <button
-                  className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
-                  onClick={() =>
-                    handleUpdateQuantity(item._id, item.quantity - 1)
-                  }
+            <div key={item._id}>
+              <div className="grid grid-cols-5 gap-3 text-center mb-2 items-center">
+                <div className="flex justify-center">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="rounded-full h-12 w-12 "
+                  />
+                </div>
+                <p>{item.price} tk</p>
+                <div className="flex justify-center">
+                  <button
+                    className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
+                    onClick={() =>
+                      handleUpdateQuantity(item._id, item.quantity - 1)
+                    }
+                  >
+                    -
+                  </button>
+                  <p>{item.quantity}</p>
+                  <button
+                    className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
+                    onClick={() =>
+                      handleUpdateQuantity(item._id, item.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
+                </div>
+                <p>{item.price * item.quantity} tk</p>
+                <Link
+                  to="#"
+                  onClick={() => handleRemove(item._id)}
+                  className="flex justify-center text-2xl text-red-600"
                 >
-                  -
-                </button>
-                <p>{item.quantity}</p>
-                <button
-                  className="px-2 mx-2 bg-cyan-900 text-white rounded-sm font-semibold"
-                  onClick={() =>
-                    handleUpdateQuantity(item._id, item.quantity + 1)
-                  }
-                >
-                  +
-                </button>
+                  <MdDeleteOutline />
+                </Link>
               </div>
-              <p>{item.price * item.quantity} tk</p>
-              <Link
-                to="#"
-                onClick={() => handleRemove(item._id)}
-                className="flex justify-center text-2xl text-red-600"
-              >
-                <MdDeleteOutline />
-              </Link>
+              <hr className="my-4" />
             </div>
           ))
         )}
 
-        <hr className="my-4" />
         {cart.length > 0 && (
           <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-12 px-5 sm:px-0 ">
             <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 sm:p-9 flex flex-col sm:flex-row gap-4 ">

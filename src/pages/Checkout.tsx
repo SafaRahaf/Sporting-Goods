@@ -35,28 +35,28 @@ const Checkout = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h2 className="text-2xl mb-4">Order Summary</h2>
+            <hr className="my-4" />
             <div className="space-y-4">
               {cart.map((item) => (
-                <div
-                  key={item._id}
-                  className="flex justify-between items-center"
-                >
-                  <div className="flex items-center">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="h-12 w-12 rounded-full"
-                    />
-                    <div className="ml-4">
-                      <h3 className="text-lg">{item.title}</h3>
-                      <p>Quantity: {item.quantity}</p>
+                <div key={item._id}>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-12 w-12 rounded-full"
+                      />
+                      <div className="ml-4">
+                        <h3 className="text-lg">{item.title}</h3>
+                        <p>Quantity: {item.quantity}</p>
+                      </div>
                     </div>
+                    <p>{item.price * item.quantity} tk</p>
                   </div>
-                  <p>{item.price * item.quantity} tk</p>
+                  <hr className="my-4" />
                 </div>
               ))}
             </div>
-            <hr className="my-4" />
             <div className="flex justify-between items-center">
               <h3 className="text-xl">Total</h3>
               <p className="text-xl">{totalAmount} tk</p>
@@ -140,14 +140,12 @@ const Checkout = () => {
                   />
                 </div>
               )}
-              <Link to="/products">
-                <Button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white p-2 rounded-md"
-                >
-                  Place Order
-                </Button>
-              </Link>
+              <Button
+                type="submit"
+                className="w-full bg-blue-500 text-white p-2 rounded-md mt-5"
+              >
+                Place Order
+              </Button>
             </form>
           </div>
         </div>

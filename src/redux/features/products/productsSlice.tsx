@@ -30,10 +30,14 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+// create product (POST) http://localhost:5000/api/products
+// get single product  (GET) http://localhost:5000/api/products/:id
+// update product (PUT) http://localhost:5000/api/products/:id
+// delete product (DELETE) http://localhost:5000/api/products/:id
+
 const filterAndSortProducts = (state: ProductsState) => {
   const { products, searchQuery, filter, sort } = state;
 
-  // Filter logic with price range
   return products
     .filter(
       (product) =>
@@ -63,42 +67,39 @@ const productsSlice = createSlice({
       state.filter = { ...state.filter, ...action.payload };
       state.filteredProducts = filterAndSortProducts(state);
     },
-    clearFilter(state) {
-      state.filter = initialState.filter;
-      state.filteredProducts = filterAndSortProducts(state);
-    },
     setSort(state, action: PayloadAction<string>) {
       state.sort = action.payload;
       state.filteredProducts = filterAndSortProducts(state);
     },
-    addProduct: (state, action: PayloadAction<IProduct>) => {
+    addProduct(state, action: PayloadAction<IProduct>) {
       state.products.push(action.payload);
+      state.filteredProducts = filterAndSortProducts(state);
+    },
+    deleteProduct(state, action: PayloadAction<string>) {
+      state.products = state.products.filter(
+        (product) => product._id !== action.payload
+      );
+      state.filteredProducts = filterAndSortProducts(state);
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchProducts.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(
-        fetchProducts.fulfilled,
-        (state, action: PayloadAction<IProduct[]>) => {
-          state.loading = false;
-          state.products = action.payload;
-          state.filteredProducts = filterAndSortProducts({
-            ...state,
-            products: action.payload,
-          });
-        }
-      )
-      .addCase(fetchProducts.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to fetch products";
-      });
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.products = action.payload;
+      state.loading = false;
+      state.filteredProducts = filterAndSortProducts(state);
+    });
+    builder.addCase(fetchProducts.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? "Something went wrong";
+    });
   },
 });
 
-export const { setSearchQuery, setFilter, clearFilter, setSort, addProduct } =
+export const { setSearchQuery, setFilter, setSort, addProduct, deleteProduct } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
