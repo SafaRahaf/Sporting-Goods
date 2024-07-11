@@ -1,14 +1,15 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../../assets/logo.png";
 
 const Header: React.FC = () => {
   return (
     <header className="bg-slate-900 py-4">
       <div className="container mx-auto flex justify-between items-center">
-        <a className="text-white text-lg font-medium" href="/">
-          Sporting Goods
-        </a>
+        <Link to="/">
+          <img src={Logo} alt="logo" className="h-10 w-28" />
+        </Link>
         <nav>
           <ul className="flex space-x-10">
             <li>
