@@ -38,6 +38,18 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+export const updateProduct = createAsyncThunk(
+  "products/updateProduct",
+  async (updatedProduct: IProduct) => {
+    const { _id, ...rest } = updatedProduct;
+    const response = await axios.put(
+      `http://localhost:5000/api/products/${_id}`,
+      rest
+    );
+    return response.data;
+  }
+);
+
 const filterAndSortProducts = (state: ProductsState) => {
   const { products, searchQuery, filter, sort } = state;
 
@@ -107,6 +119,24 @@ const productsSlice = createSlice({
       state.filteredProducts = filterAndSortProducts(state);
     });
     builder.addCase(deleteProduct.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? "Something went wrong";
+    });
+
+    builder.addCase(updateProduct.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(updateProduct.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null;
+      // Update the product in the state with the updated data
+      state.products = state.products.map((product) =>
+        product._id === action.payload._id ? action.payload : product
+      );
+      state.filteredProducts = filterAndSortProducts(state);
+    });
+    builder.addCase(updateProduct.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message ?? "Something went wrong";
     });

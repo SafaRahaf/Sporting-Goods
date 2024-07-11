@@ -30,15 +30,11 @@ const ManageProduct = () => {
       image,
     };
 
-    console.log("Submitting new product:", newProduct);
-
     try {
       const response = await axios.post(
         "http://localhost:5000/api/products",
         newProduct
       );
-
-      console.log("Response from backend:", response.data);
 
       dispatch(addProduct(response.data));
 
@@ -156,7 +152,7 @@ const ManageProduct = () => {
 
       <div className="w-full md:w-7/12 md:px-10 mt-8 md:mt-0">
         <h1 className="text-2xl font-medium mb-6 text-center md:text-left pb-5 flex justify-center">
-          Edit Product
+          All Products
         </h1>
         <EditAndDelProducts />
       </div>
