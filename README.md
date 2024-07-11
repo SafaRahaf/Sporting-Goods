@@ -6,14 +6,14 @@ A comprehensive e-commerce platform for sporting goods, offering a wide range of
 
 ## Project Description
 
-This project aims to build a dynamic and user-friendly e-commerce website tailored for a sporting goods business. The platform will provide a seamless shopping experience for customers and a robust management system for administrators. The site includes various features such as product browsing, detailed product views, cart management, and a streamlined checkout process.
+This project aims to build a dynamic and user-friendly e-commerce website tailored for a sporting goods business. The platform will provide a seamless shopping experience for customers. The site includes various features such as product browsing, detailed product views, cart management, and a streamlined checkout process. and more.
 
 ## Features
 
 - **Navbar & Footer**
 
-  - Logo and menu items (All Products, Manage Products, Cart, About Us)
-  - Social media icons and website links in the footer
+  - Logo and menu items (All Products, Manage Products, Cart, About Us, home)
+  - Social media icons and website links in the footer contact informations etc
 
 - **Homepage**
 
@@ -66,6 +66,10 @@ This project aims to build a dynamic and user-friendly e-commerce website tailor
 
   - React
   - Redux
+  - typescript
+
+  - **Style**
+    - tailewindcss
 
 - **Backend Development**
   - Node.js
@@ -73,17 +77,17 @@ This project aims to build a dynamic and user-friendly e-commerce website tailor
   - Mongoose
   - TypeScript
 
-## Installation Guideline
+## Installation and Start App Guideline
 
-### Prerequisites
+- npm i
+- npm run dev
 
-- Node.js
-- npm or yarn
+### Configuration
 
-### Installation Steps
+- **Create a .env file in the root directory of the project.**
+- **Add necessary configuration variables in the .env file. Example:**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/sporting-goods-ecommerce.git
-   cd sporting-goods-ecommerce
-   ```
+```bash
+PORT=5000
+DB_URL=your_db_connection_uri
+```
