@@ -3,7 +3,6 @@ import { MdDeleteOutline } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../redux/features/hooks";
 import {
-  addToCart,
   removeFromCart,
   updateQuantity,
   clearCart,

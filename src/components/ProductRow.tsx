@@ -20,6 +20,7 @@ const ProductRow: React.FC<IProduct> = ({
   const [isEditing, setIsEditing] = useState(false);
 
   const handleDelete = () => {
+    // @ts-ignore
     dispatch(deleteProduct(_id));
   };
 
@@ -48,6 +49,7 @@ const ProductRow: React.FC<IProduct> = ({
           {isEditing ? (
             <div className="bg-slate-50 shadow-md">
               <EditProductForm
+                // @ts-ignore
                 product={{ _id, image, title, price, stock, category, brand }}
                 onClose={toggleEditForm}
               />

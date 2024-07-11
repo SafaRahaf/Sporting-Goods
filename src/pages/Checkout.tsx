@@ -5,7 +5,6 @@ import { clearCart } from "../redux/features/products/cartSlice";
 import { Button } from "@/components/ui/button";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const cart = useAppSelector((state: RootState) => state.cart.cart);

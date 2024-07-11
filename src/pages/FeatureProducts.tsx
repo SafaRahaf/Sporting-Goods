@@ -4,6 +4,7 @@ import { fetchProducts } from "@/redux/features/products/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/features/store";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const FeatureProducts: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -43,6 +44,9 @@ const FeatureProducts: React.FC = () => {
             </Link>
           ))}
         </div>
+        <Button className="w-full mt-5">
+          <Link to="/products">View All Products</Link>
+        </Button>
       </div>
     </section>
   );

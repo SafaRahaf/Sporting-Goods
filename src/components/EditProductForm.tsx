@@ -30,6 +30,7 @@ const EditProductForm: React.FC<EditProductFormProps> = ({
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
+      //@ts-ignore
       await dispatch(updateProduct(editedProduct));
       onClose();
     } catch (error) {

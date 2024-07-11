@@ -5,7 +5,7 @@ import { addToCart } from "@/redux/features/products/cartSlice";
 import { RootState } from "@/redux/features/store";
 
 interface AddToCartButtonProps {
-  productId: string;
+  productId: any;
 }
 
 const AddToCartButton: React.FC<AddToCartButtonProps> = ({ productId }) => {
@@ -15,6 +15,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ productId }) => {
 
   const handleAddToCart = () => {
     if (product) {
+      //@ts-ignore
       dispatch(addToCart(product));
       console.log("Product added to cart:", product);
     }

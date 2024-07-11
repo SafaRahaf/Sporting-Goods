@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <header className="bg-slate-900 py-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/">
-          <img src={Logo} alt="logo" className="h-10 w-28" />
+          <img src={Logo} alt="logo" className="h-10 w-auto" />
         </Link>
         <nav>
           <ul className="flex space-x-10">
