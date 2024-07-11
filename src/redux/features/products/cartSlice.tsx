@@ -20,7 +20,9 @@ const saveCartToLocalStorage = (cart: CartItem[]) => {
 export const fetchProducts = createAsyncThunk(
   "cart/fetchProducts",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/products");
+    const response = await axios.get(
+      "https://sport-goods-backend.onrender.com/api/products"
+    );
     return response.data;
   }
 );

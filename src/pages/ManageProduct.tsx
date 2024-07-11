@@ -26,13 +26,13 @@ const ManageProduct = () => {
       brand,
       rating,
       description,
-      price,
+      price: Number(price),
       image,
     };
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products",
+        "https://sport-goods-backend.onrender.com/api/products",
         newProduct
       );
 

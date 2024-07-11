@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../redux/features/store";
 import { fetchProducts } from "../redux/features/products/productsSlice";

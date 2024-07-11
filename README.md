@@ -1,30 +1,89 @@
-# React + TypeScript + Vite
+# Sporting Goods E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+A comprehensive e-commerce platform for sporting goods, offering a wide range of equipment and accessories for various sports, designed to enhance both customer and admin experiences.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description
 
-## Expanding the ESLint configuration
+This project aims to build a dynamic and user-friendly e-commerce website tailored for a sporting goods business. The platform will provide a seamless shopping experience for customers and a robust management system for administrators. The site includes various features such as product browsing, detailed product views, cart management, and a streamlined checkout process.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- **Navbar & Footer**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  - Logo and menu items (All Products, Manage Products, Cart, About Us)
+  - Social media icons and website links in the footer
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Homepage**
+
+  - Hero section with a carousel showcasing discount information
+  - Featured products section with product details and View Details button
+  - Category section with clickable categories redirecting to filtered products
+  - Contact Us section with a form
+
+- **About Us**
+
+  - Company information, mission, vision, contact details, team, and store locations
+
+- **All Products**
+
+  - Display of all products with search, filter, and sorting functionalities
+  - Clear filter button
+
+- **Single Product**
+
+  - Detailed product view with an Add to Cart button and image viewing options
+
+- **Cart Page**
+
+  - View and manage products in the cart
+  - Total price calculation including VAT
+  - Proceed to checkout functionality
+
+- **Checkout Page**
+
+  - User details form
+  - Payment methods (Cash on Delivery, Stripe)
+  - Success page redirection post-purchase
+
+- **Manage Products**
+
+  - Add, delete, and update products using RTK Query
+  - Prefilled update form fields
+  - Real-time UI updates with modals/toasts for actions
+
+- **Backend Integration**
+
+  - Backend integration using Node.js, Express.js, Mongoose, and TypeScript
+
+- **Responsive Design**
+  - Ensuring compatibility across devices (desktop, tablet, mobile)
+
+## Technology Stack
+
+- **Frontend Development**
+
+  - React
+  - Redux
+
+- **Backend Development**
+  - Node.js
+  - Express.js
+  - Mongoose
+  - TypeScript
+
+## Installation Guideline
+
+### Prerequisites
+
+- Node.js
+- npm or yarn
+
+### Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/sporting-goods-ecommerce.git
+   cd sporting-goods-ecommerce
+   ```

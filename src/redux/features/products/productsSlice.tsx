@@ -25,7 +25,9 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await axios.get("http://localhost:5000/api/products");
+    const response = await axios.get(
+      "https://sport-goods-backend.onrender.com/api/products"
+    );
     return response.data;
   }
 );
@@ -33,7 +35,9 @@ export const fetchProducts = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (_id: string) => {
-    await axios.delete(`http://localhost:5000/api/products/${_id}`);
+    await axios.delete(
+      `https://sport-goods-backend.onrender.com/api/products/${_id}`
+    );
     return _id;
   }
 );
@@ -43,8 +47,8 @@ export const updateProduct = createAsyncThunk(
   async (updatedProduct: IProduct) => {
     const { _id, ...rest } = updatedProduct;
     const response = await axios.put(
-      `http://localhost:5000/api/products/${_id}`,
-      rest
+      `https://sport-goods-backend.onrender.com/api/products/${_id}`,
+      { ...rest, price: Number(rest.price), stock: Number(rest.stock) }
     );
     return response.data;
   }
@@ -130,7 +134,6 @@ const productsSlice = createSlice({
     builder.addCase(updateProduct.fulfilled, (state, action) => {
       state.loading = false;
       state.error = null;
-      // Update the product in the state with the updated data
       state.products = state.products.map((product) =>
         product._id === action.payload._id ? action.payload : product
       );

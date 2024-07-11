@@ -27,7 +27,7 @@ const EditProductForm: React.FC<EditProductFormProps> = ({
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       await dispatch(updateProduct(editedProduct));
