@@ -50,7 +50,17 @@ const ProductsPage: React.FC = () => {
   };
 
   const handleClearFilters = () => {
-    window.location.reload();
+    dispatch(setSearchQuery(""));
+    dispatch(
+      setFilter({
+        category: "",
+        priceMin: undefined,
+        priceMax: undefined,
+        brand: "",
+        rating: 0,
+      })
+    );
+    dispatch(setSort(""));
   };
 
   if (loading) return <p>Loading...</p>;
