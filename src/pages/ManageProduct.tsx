@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../redux/features/products/productsSlice";
-import { v4 as uuidv4 } from "uuid";
-import { IProduct } from "@/interface/productInterface";
 import EditAndDelProducts from "../components/Edit&DelProducts";
 import { RootState } from "@/redux/features/store";
+import axios from "axios";
 
 const ManageProduct = () => {
   const dispatch = useDispatch();
@@ -19,11 +18,10 @@ const ManageProduct = () => {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newProduct: IProduct = {
-      _id: uuidv4(),
+    const newProduct: any = {
       title,
       category,
       stock,
@@ -34,16 +32,34 @@ const ManageProduct = () => {
       image,
     };
 
-    dispatch(addProduct(newProduct));
+    console.log("Submitting new product:", newProduct);
 
-    setTitle("");
-    setCategory("");
-    setStock(0);
-    setBrand("");
-    setRating(0);
-    setDescription("");
-    setPrice(0);
-    setImage("");
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/products",
+        newProduct
+      );
+
+      console.log("Response from backend:", response.data);
+
+      dispatch(addProduct(response.data));
+
+      setTitle("");
+      setCategory("");
+      setStock(0);
+      setBrand("");
+      setRating(0);
+      setDescription("");
+      setPrice(0);
+      setImage("");
+    } catch (error: any) {
+      console.error("Error creating product:", error);
+      if (error.response && error.response.data) {
+        alert(`Error: ${JSON.stringify(error.response.data)}`);
+      } else {
+        alert("An unexpected error occurred.");
+      }
+    }
   };
 
   return (
@@ -144,7 +160,7 @@ const ManageProduct = () => {
         <h1 className="text-2xl font-medium mb-6 text-center md:text-left pb-5 flex justify-center">
           Edit Product
         </h1>
-        <EditAndDelProducts products={products} />
+        <EditAndDelProducts />
       </div>
     </div>
   );
