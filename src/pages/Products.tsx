@@ -49,6 +49,20 @@ const ProductsPage: React.FC = () => {
     dispatch(setSort(e.target.value));
   };
 
+  const handleClearFilters = () => {
+    dispatch(setSearchQuery(""));
+    dispatch(
+      setFilter({
+        category: "",
+        priceMin: undefined,
+        priceMax: undefined,
+        brand: "",
+        rating: 0,
+      })
+    );
+    dispatch(setSort(""));
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -139,8 +153,12 @@ const ProductsPage: React.FC = () => {
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
           </select>
-          <Button className="bg-red-500 text-white p-2 rounded w-full sm:w-auto">
-            <a href="/products">Clear Filter</a>
+          <Button
+            onClick={handleClearFilters}
+            className="bg-red-500 text-white p-2 rounded w-full sm:w-auto"
+          >
+            Clear Filter
+            {/* <a href="/products">Clear Filter</a> */}
           </Button>
         </div>
 

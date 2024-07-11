@@ -13,31 +13,31 @@ const Header: React.FC = () => {
         <nav>
           <ul className="flex space-x-10">
             <li>
-              <a href="/" className="text-white">
+              <Link to="/" className="text-white">
                 Home
-              </a>
+              </Link>
             </li>{" "}
             <li>
-              <a href="/products" className="text-white">
+              <Link to="/products" className="text-white">
                 Products
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="text-white">
+              <Link to="/about" className="text-white">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="text-white">
+              <Link to="/contact" className="text-white">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
-        <div className="flex gap-6  ">
-          <a href="/manage-product" className="text-white hidden md:block">
+        <div className="flex gap-6">
+          <Link to="/manage-product" className="text-white hidden md:block">
             Add Products
-          </a>
+          </Link>
           <NavLink to="/add-to-cart">
             <a className="text-white flex">
               <IoCartOutline className=" text-2xl font-bold mr-3" />
