@@ -50,17 +50,7 @@ const ProductsPage: React.FC = () => {
   };
 
   const handleClearFilters = () => {
-    dispatch(setSearchQuery(""));
-    dispatch(
-      setFilter({
-        category: "",
-        priceMin: undefined,
-        priceMax: undefined,
-        brand: "",
-        rating: 0,
-      })
-    );
-    dispatch(setSort(""));
+    window.location.reload();
   };
 
   if (loading) return <p>Loading...</p>;
@@ -158,7 +148,6 @@ const ProductsPage: React.FC = () => {
             className="bg-red-500 text-white p-2 rounded w-full sm:w-auto"
           >
             Clear Filter
-            {/* <a href="/products">Clear Filter</a> */}
           </Button>
         </div>
 
