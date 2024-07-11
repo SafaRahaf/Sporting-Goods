@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/features/products/productsSlice";
 import EditAndDelProducts from "../components/Edit&DelProducts";
-import { RootState } from "@/redux/features/store";
 import axios from "axios";
 
 const ManageProduct = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.products.products);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");

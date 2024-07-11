@@ -30,10 +30,13 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
-// create product (POST) http://localhost:5000/api/products
-// get single product  (GET) http://localhost:5000/api/products/:id
-// update product (PUT) http://localhost:5000/api/products/:id
-// delete product (DELETE) http://localhost:5000/api/products/:id
+export const deleteProduct = createAsyncThunk(
+  "products/deleteProduct",
+  async (_id: string) => {
+    await axios.delete(`http://localhost:5000/api/products/${_id}`);
+    return _id;
+  }
+);
 
 const filterAndSortProducts = (state: ProductsState) => {
   const { products, searchQuery, filter, sort } = state;
@@ -75,12 +78,6 @@ const productsSlice = createSlice({
       state.products.push(action.payload);
       state.filteredProducts = filterAndSortProducts(state);
     },
-    deleteProduct(state, action: PayloadAction<string>) {
-      state.products = state.products.filter(
-        (product) => product._id !== action.payload
-      );
-      state.filteredProducts = filterAndSortProducts(state);
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -96,10 +93,27 @@ const productsSlice = createSlice({
       state.loading = false;
       state.error = action.error.message ?? "Something went wrong";
     });
+
+    builder.addCase(deleteProduct.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(deleteProduct.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = null;
+      state.products = state.products.filter(
+        (product) => product._id !== action.payload
+      );
+      state.filteredProducts = filterAndSortProducts(state);
+    });
+    builder.addCase(deleteProduct.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message ?? "Something went wrong";
+    });
   },
 });
 
-export const { setSearchQuery, setFilter, setSort, addProduct, deleteProduct } =
+export const { setSearchQuery, setFilter, setSort, addProduct } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
