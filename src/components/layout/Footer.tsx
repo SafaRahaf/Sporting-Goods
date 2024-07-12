@@ -65,13 +65,17 @@ const Footer: React.FC = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
 
-            <h4 className="text-lg mb-3">
-              <strong className="text-xl font-normal mb-2">Call Us :</strong>
+            <h4 className="text-md mb-3">
+              <strong className="text-xl font-normal mb-2">Call Us : </strong>
               +91 12345678978
             </h4>
-            <h4 className="text-lg">
-              <strong className="text-xl font-normal mb-2">Mail Us :</strong>
+            <h4 className="text-md mb-3">
+              <strong className="text-xl font-normal mb-2">Mail Us : </strong>
               sportgoods@outlook.com
+            </h4>
+            <h4 className="text-md">
+              <strong className="text-xl font-normal mb-2">Location : </strong>
+              Boro Bongram, Khanka Shorif Mor, Rajshahi, Bangladesh
             </h4>
           </div>
         </div>

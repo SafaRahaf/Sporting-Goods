@@ -4,7 +4,9 @@ const OurTeam: React.FC = () => {
   return (
     <section className="py-8 bg-gray-100">
       <div className="container mx-auto">
-        <h2 className="text-2xl font-bold mb-4">Our Team</h2>
+        <h2 className="text-2xl font-bold mb-4 flex justify-center">
+          Our Team
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div className="border rounded-lg overflow-hidden shadow-lg">
             <img
