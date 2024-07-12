@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ImageOne from "../assets/homeOne.jpeg";
-import ImageTwo from "../assets/homeTwo.jpeg";
-import ImageThree from "../assets/homeThree.jpeg";
+import ImageOne from "../assets/One.jpg";
+import ImageTwo from "../assets/Two.jpg";
+import ImageThree from "../assets/Three.jpg";
 
 const discountSlides = [
   {
